@@ -1,6 +1,7 @@
 ﻿#include "postfix.h"
 #include "stack.h"
-
+#include <iostream>
+#include <string>
 string TPostfix::ToPostfix()
 {
 	postfix = infix;
@@ -147,10 +148,3 @@ double TPostfix::Calculate()
   return stack.Pop();;
 }
 
-int TPostfix::priority(char c)
-{
-	if ((c == '*') || (c == '/')) return 2;
-	if((c == '-') || (c == '+')) return 1;
-	if (c == '(') return 0;
-	return -2;
-}
