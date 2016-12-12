@@ -11,14 +11,24 @@ class TPostfix
   string infix;
   string postfix;
 public:
-  TPostfix()
-  {
-    infix = "a + b";
-  }
+
+	TPostfix(string s)
+	{
+		infix = s;
+	}
+
   string GetInfix() { return infix; }
   string GetPostfix() { return postfix; }
   string ToPostfix();
   double Calculate(); // Ввод переменных, вычисление по постфиксной форме
+  int TPostfix::priority(char c)
+  {
+	  if ((c == '*') || (c == '/')) return 2;
+	  if ((c == '-') || (c == '+')) return 1;
+	  if (c == '(') return 0;
+	  return -2;
+  }
+
 };
 
 #endif
